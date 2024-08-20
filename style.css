@@ -3,25 +3,44 @@ body {
     background: radial-gradient(circle, rgba(63, 84, 251, 1) 0%, rgba(252, 70, 210, 1) 100%);
 }
 
-.container {
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: minmax(300px, 1fr);
-    gap: 1vw;
+    grid-template-columns: repeat(5, minmax(10vw, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 2vw;
     margin-left: 5vw;
     margin-right: 5vw;
 }
 
-.box-small {
-    width: 150px;
-    height: 150px;
-    grid-row: span 1;
-    grid-column: span 1;
+.grid::before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
 }
 
-.box-large {
-    width: 300px;
-    height: 300px;
-    grid-row: span 2;
-    grid-column: span 2;
+.grid > *:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+.container div {
+    aspect-ratio: 1;
+}
+
+.title {
+    grid-row: span 1;
+    grid-column: span 1;
+    background: white;
+    border-radius: 25px;
+}
+
+.game {
+    grid-row: span 1;
+    grid-column: span 1;
+    background: white;
+    border-radius: 25px;
+    width: 100%;
+    height: auto;
 }
